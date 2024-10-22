@@ -1,0 +1,16 @@
+.keyword {
+    color: mediumpurple;
+    font-weight: bold;
+}
+
+.operator {
+    color: #dcdcaa;
+}
+
+.number {
+    color: deepskyblue;
+}
+
+.string {
+    color: #d69d85;
+}
