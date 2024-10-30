@@ -1,5 +1,5 @@
-# lix editor (Tauri + React + Typescript + Zustand)
+# lix
 
 ![lix-window](./screenshots/Screenshot1.png)
 
-> Light editor as it is.
+>  Light editor as it is.
