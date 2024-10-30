@@ -29,7 +29,7 @@ export const useSearchStore = create<SearchState>()((set, get) => ({
     if(currPath === newPath) return;
     currPath = fromPos ? `${currPath}/${newPath}` : newPath;
 
-    await invoke<ResFileMetadata[]>("get_filenames_in_directory", { path: currPath })
+    await invoke<ResFileMetadata[]>("get_filenames_in_dir", { path: currPath })
       .then((resMetaFiles) => {
         // transform from ResFileMetadata to FileMetadata
         // mutate with new values: formattedSize, formattedModified
