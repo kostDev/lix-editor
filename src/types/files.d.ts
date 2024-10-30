@@ -6,7 +6,7 @@ export interface ResFileMetadata  {
   modified: number;
   is_dir: boolean;
   extension?: string | null;
-  directory_path: string;
+  path: string;
 }
 
 export interface FileMetadata  {
@@ -17,7 +17,7 @@ export interface FileMetadata  {
   formattedSize: string,
   formattedModified: Date,
   extension?: string | null;
-  directory_path: string;
+  path: string;
 }
 
 export type FileContent = string;

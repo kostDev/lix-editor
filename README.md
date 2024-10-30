@@ -2,4 +2,10 @@
 
 ![lix-window](./screenshots/Screenshot1.png)
 
->  Light editor as it is.
+## How to run
+
+```text
+yarn install
+yarn tauri dev
+```
+

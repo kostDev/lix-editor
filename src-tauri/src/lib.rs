@@ -10,7 +10,7 @@ struct FileMetadata {
     modified: u64,
     is_dir: bool,
     extension: Option<String>,
-    directory_path: String,
+    path: String,
 }
 
 const HIDDEN_FILES: [&str;1] = [".DS_Store"];
@@ -32,7 +32,7 @@ fn get_filenames_in_dir(path: String) -> Vec<FileMetadata> {
                         modified: modified.duration_since(UNIX_EPOCH).unwrap_or_default().as_secs(),
                         is_dir: metadata.is_dir(),
                         extension: entry.path().extension().and_then(|e| e.to_str().map(String::from)),
-                        directory_path: path.clone(),
+                        path: path.clone(),
                     });
                 }
             }
@@ -55,10 +55,9 @@ fn get_file_content(directory: String, file_name: String) -> Option<String> {
     let mut file = File::open(file_path).ok()?;
     let mut file_content = String::new();
 
-    if file.read_to_string(&mut file_content).is_ok() {
-        Some(file_content)
-    } else {
-        None
+    match file.read_to_string(&mut file_content) {
+        Ok(_) => Some(file_content),
+        Err(_) => None,
     }
 }
 

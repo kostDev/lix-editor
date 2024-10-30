@@ -8,7 +8,7 @@ import {useSearchStore} from "../stores/SearchStore.ts";
 
 function FilesList() {
   const files = useSearchStore((s) => s.filesMeta);
-  // console.log('render FilesList');
+
   return (
     <Container
       color="white"
@@ -19,8 +19,8 @@ function FilesList() {
         '&::-webkit-scrollbar': {
           display: 'none',
         },
-        '-ms-overflow-style': 'none', // Для Internet Explorer та Edge
-        'scrollbar-width': 'none',    // Для Firefox
+        '-ms-overflow-style': 'none',
+        'scrollbar-width': 'none',
       }}
       position="absolute"
       alignSelf="end"

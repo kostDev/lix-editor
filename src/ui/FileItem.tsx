@@ -11,18 +11,18 @@ interface Props {
   file: FileMetadata;
 }
 
+// @ts-ignore
+const MotionHStack = motion(chakra(HStack));
+
 function FileItem(props: Props) {
-  const { name, formattedSize, formattedModified, is_dir, directory_path } = props.file;
+  const { name, formattedSize, formattedModified, is_dir,path } = props.file;
   const loadFilesByPath = useSearchStore(s => s.loadFilesByPath);
   const loadFileContent = useFilesStore(s => s.loadFileContent);
-  // @ts-ignore
-  const MotionHStack = motion(chakra(HStack));
   // console.log('render', props.filename);
   const handleClick = () => {
     if(is_dir) loadFilesByPath(name, true);
-    else loadFileContent(directory_path, name);
+    else loadFileContent(path, name);
   }
-
 
   return (
     <MotionHStack
